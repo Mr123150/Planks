@@ -22,12 +22,17 @@
         android:id="@+id/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="startClick"
+        android:layout_marginTop="30dp"
+        android:textSize="50sp"
         android:text="@string/action_start"/>
     
     <Button 
         android:id="@+id/settingsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="settingsClick"
+        android:layout_marginTop="20dp"
         android:text="@string/action_settings"/>
 
 </LinearLayout>

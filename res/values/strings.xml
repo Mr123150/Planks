@@ -2,7 +2,14 @@
 <resources>
 
     <string name="app_name">Planks</string>
+    
     <string name="action_settings">Settings</string>
     <string name="action_start">Start</string>
-
+    <string name="action_skip">Skip</string>
+    
+    <string name="title_activity_planks">Planks</string>
+    <string name="title_activity_settings">Settings</string>
+    
+	<string name="timer_default">00:00</string>
+	
 </resources>
