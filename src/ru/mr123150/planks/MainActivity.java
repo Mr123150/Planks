@@ -32,6 +32,7 @@ public class MainActivity extends Activity {
 	
 	public void startClick(View view){
 		Intent intent=new Intent(MainActivity.this,PlanksActivity.class);
+		//intent.putExtra("reset", true);
 		startActivity(intent);
 	}
 	
