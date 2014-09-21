@@ -11,7 +11,9 @@ import android.widget.TextView;
 public class PlanksActivity extends Activity {
 
 	MenuItem skipItem;
+	
 	TextView timerText;
+	TextView timerRevText;
 	
 	int timerTime;
 	
@@ -23,21 +25,17 @@ public class PlanksActivity extends Activity {
 		setupActionBar();
 		
 		timerText=(TextView)findViewById(R.id.timerText);
+		timerRevText=(TextView)findViewById(R.id.timerRevText);
 		
 		new CountDownTimer(30000, 10) {
 
 		     public void onTick(long timeLeft) {
-		    	 int sec=(int)(30000 - timeLeft)/1000;
-		    	 int msec=(int)((30000 - timeLeft)%1000)/10;
-		    	 
-		    	 String str_sec,str_msec;
-		    	 if(sec<10) str_sec="0"+Integer.toString(sec); else str_sec=Integer.toString(sec);
-		    	 if(msec<10) str_msec="0"+Integer.toString(msec); else str_msec=Integer.toString(msec);
-		         timerText.setText(str_sec + ":" + str_msec);
+		         timerText.setText((30000 - timeLeft)/1000 + ":" + ((30000 - timeLeft)%1000)/100);
+		         timerRevText.setText(timeLeft/1000 + ":" + (timeLeft%1000)/100);
 		     }
 
 		     public void onFinish() {
-		         timerText.setText("done!");
+		         
 		     }
 		  }.start();
 
