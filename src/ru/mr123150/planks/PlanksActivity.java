@@ -3,14 +3,13 @@ package ru.mr123150.planks;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class PlanksActivity extends Activity {
 
@@ -18,14 +17,17 @@ public class PlanksActivity extends Activity {
 	
 	TextView timerText;
 	TextView timerRevText;
+	TextView breakTimerText;
+	TextView counterCurrentText;
+	TextView counterTotalText;
 	
-	int timerTime;
-	int totalTime;
+	CountDownTimer mainTimer;
 	
-	Boolean reset=false;
+	int counter;
+	int counterTotal;
+	int breakTime;
 	
 	public static final String APP_PREFERENCES = "settings";
-	public static final String APP_PREFERENCES_TIMER = "Timer";
 	
 	SharedPreferences settings;
 	
@@ -33,28 +35,28 @@ public class PlanksActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_planks);
-		// Show the Up button in the action bar.
 		setupActionBar();
 		
-		settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-	
-		/*reset = getIntent().getExtras().getBoolean("reset");
+		counter=1;
+		counterTotal=6;
+		breakTime=5;
 		
-		if(reset){
-			timerTime=0;
-			
-			Editor editor = settings.edit();
-	        editor.putInt(APP_PREFERENCES_TIMER, 0);
-	        editor.apply();
-		}*/
+		settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 		
 		timerText=(TextView)findViewById(R.id.timerText);
 		timerRevText=(TextView)findViewById(R.id.timerRevText);
 		
-		new CountDownTimer(30000, 10) {
+		breakTimerText=(TextView)findViewById(R.id.breakTimer);
+		
+		counterCurrentText=(TextView)findViewById(R.id.countCurrent);
+		counterTotalText=(TextView)findViewById(R.id.countTotal);
+		
+		counterTotalText.setText(Integer.toString(counterTotal));
+		
+		mainTimer();
+		/*new CountDownTimer(30000, 10) {
 
 		     public void onTick(long timeLeft) {
-		    	 //totalTime=(int)(timeLeft-timerTime);
 		         timerText.setText((30000 - timeLeft)/1000 + ":" + ((30000 - timeLeft)%1000)/100);
 		         timerRevText.setText(timeLeft/1000 + ":" + (timeLeft%1000)/100);
 		     }
@@ -62,29 +64,53 @@ public class PlanksActivity extends Activity {
 		     public void onFinish() {
 		    	 timerText.setText("30:0");
 		    	 timerRevText.setText("0:0");
-		         
-		         /*Editor editor = settings.edit();
-		         editor.putInt(APP_PREFERENCES_TIMER, 0);
-		         editor.apply();*/
+	    		 breakTimerText.setVisibility(View.VISIBLE);
+		     }
+		  }.start();*/
+
+	}
+	
+	public void mainTimer(){
+		counterCurrentText.setText(Integer.toString(counter));
+		
+		mainTimer = new CountDownTimer(30000, 10) {
+
+		     public void onTick(long timeLeft) {
+		         timerText.setText((30000 - timeLeft)/1000 + ":" + ((30000 - timeLeft)%1000)/100);
+		         timerRevText.setText(timeLeft/1000 + ":" + (timeLeft%1000)/100);
+		     }
+
+		     public void onFinish() {
+		    	 timerText.setText("0:0");
+		    	 timerRevText.setText("0:0");
+		    	 breakTimerText.setVisibility(View.VISIBLE);
+		    	 if(counter!=counterTotal){
+		    		 ++counter;
+		    		 breakTimerText.setText(Integer.toString(breakTime));
+		    		 breakTimer();
+		    	 }
+		    	 else{
+		    		 breakTimerText.setTextSize(120);
+		    		 breakTimerText.setText("Done!");
+		    	 }
+		     }
+		  };
+		  mainTimer.start();
+	}
+	
+	public void breakTimer(){
+		new CountDownTimer(breakTime*1000, 10) {
+
+		     public void onTick(long timeLeft) {
+		    	 breakTimerText.setText(Long.toString(timeLeft/1000+1));
+		     }
+
+		     public void onFinish() {
+		    	 breakTimerText.setText("0");
+		    	 breakTimerText.setVisibility(View.GONE);
+		    	 mainTimer();
 		     }
 		  }.start();
-
-	}
-	
-	@Override
-	protected void onResume(){
-		super.onResume();
-		
-		timerTime=settings.getInt(APP_PREFERENCES_TIMER, 0);
-	}
-	
-	@Override
-	protected void onDestroy(){
-		super.onDestroy();
-
-        Editor editor = settings.edit();
-        editor.putInt(APP_PREFERENCES_TIMER, (int)(30000-totalTime));
-        editor.apply();
 	}
 
 	/**
@@ -113,6 +139,19 @@ public class PlanksActivity extends Activity {
 		case R.id.action_skip:
 			skipItem.setEnabled(false);
 			skipItem.setIcon(R.drawable.skip_disabled);
+			mainTimer.cancel();
+			timerText.setText("0:0");
+	    	timerRevText.setText("0:0");
+	    	breakTimerText.setVisibility(View.VISIBLE);
+			if(counter!=counterTotal){
+	    		 ++counter;
+	    		 breakTimerText.setText(Integer.toString(breakTime));
+	    		 breakTimer();
+	    	 }
+	    	 else{
+	    		 breakTimerText.setTextSize(120);
+	    		 breakTimerText.setText("Done!");
+	    	 }
 		}
 		return super.onOptionsItemSelected(item);
 	}

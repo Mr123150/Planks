@@ -1,8 +1,7 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".PlanksActivity" >
 
     <TextView 
@@ -10,6 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
         android:textSize="50sp"
         android:text="@string/timer_default"/>
     
@@ -18,5 +18,47 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_below="@id/timerText"
+        android:layout_centerHorizontal="true"
         android:text="@string/timer_default"/>
-</LinearLayout>
+    
+    <LinearLayout
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentRight="true">
+	    
+	    <TextView
+	        android:id="@+id/countCurrent"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/zero" />
+	    
+	    <TextView
+	        android:id="@+id/countOf"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="2dp"
+	        android:layout_marginRight="2dp"
+	        android:text="@string/counter_of" />
+	    
+	    <TextView
+	        android:id="@+id/countTotal"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/zero" />
+        
+    </LinearLayout>
+    
+    <TextView 
+	    android:id="@+id/breakTimer"
+	    android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:background="#fff"
+        android:visibility="gone"
+        android:alpha="0.85"
+        android:textSize="200sp"
+        android:text="@string/zero" />
+    
+</RelativeLayout>
