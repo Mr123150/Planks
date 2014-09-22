@@ -51,20 +51,21 @@ public class PlanksActivity extends Activity {
 		timerText=(TextView)findViewById(R.id.timerText);
 		timerRevText=(TextView)findViewById(R.id.timerRevText);
 		
-		new CountDownTimer(30000 - timerTime, 10) {
+		new CountDownTimer(30000, 10) {
 
 		     public void onTick(long timeLeft) {
-		    	 totalTime=(int)(timeLeft-timerTime);
-		         timerText.setText((30000 - totalTime)/1000 + ":" + ((30000 - totalTime)%1000)/100);
+		    	 //totalTime=(int)(timeLeft-timerTime);
+		         timerText.setText((30000 - timeLeft)/1000 + ":" + ((30000 - timeLeft)%1000)/100);
 		         timerRevText.setText(timeLeft/1000 + ":" + (timeLeft%1000)/100);
 		     }
 
 		     public void onFinish() {
-		    	 timerText.setText("done!");
+		    	 timerText.setText("30:0");
+		    	 timerRevText.setText("0:0");
 		         
-		         Editor editor = settings.edit();
+		         /*Editor editor = settings.edit();
 		         editor.putInt(APP_PREFERENCES_TIMER, 0);
-		         editor.apply();
+		         editor.apply();*/
 		     }
 		  }.start();
 
