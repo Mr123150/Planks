@@ -74,7 +74,7 @@ public class PlanksActivity extends Activity {
 	}
 	
 	public void mainTimer(){
-		final int timer=timerTime[counter];
+		final int timer=timerTime[counter]*1000;
 		counterCurrentText.setText(Integer.toString(counter+1));
 		
 		mainTimer = new CountDownTimer(timer, 10) {
@@ -120,8 +120,9 @@ public class PlanksActivity extends Activity {
    	 	}
 	}
 	
-	public void donePressed(View v){
-		NavUtils.navigateUpFromSameTask(this);
+	public void breakClicked(View v){
+		if(counter==counterTotal)
+			NavUtils.navigateUpFromSameTask(this);
 	}
 
 	/**
@@ -148,8 +149,8 @@ public class PlanksActivity extends Activity {
 			NavUtils.navigateUpFromSameTask(this);
 			return true;
 		case R.id.action_skip:
-			//skipItem.setEnabled(false);
-			//skipItem.setIcon(R.drawable.skip_disabled);
+			skipItem.setEnabled(false);
+			skipItem.setIcon(R.drawable.skip_disabled);
 			mainTimer.cancel();
 			timerFinish();
 		}

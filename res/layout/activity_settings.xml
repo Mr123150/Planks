@@ -1,16 +1,97 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:paddingLeft="5dp"
     tools:context=".SettingsActivity" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/timer_default" />
+    <TableRow
+        android:id="@+id/breakRow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+        
+        <TextView 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|left"
+            android:text="@string/settings_break"/>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:orientation="horizontal" >
+            
+            <Button
+	            android:id="@+id/breakMinus"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:background="#0fff"
+	            android:text="@string/minus"
+	            android:textSize="30sp" />
+	        
+	        <EditText
+	            android:id="@+id/breakTime"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:inputType="numberDecimal"
+	            android:text="@string/zero" />
+	        
+	        <Button
+	            android:id="@+id/breakPlus"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:background="#0fff"
+	            android:text="@string/plus"
+	            android:textSize="30sp" />
+            
+        </LinearLayout>
 
-</RelativeLayout>
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/beepRow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/plankRow1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/plankRow2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/plankRow3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/plankRow4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/plankRow5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/plankRow6"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </TableRow>
+
+</TableLayout>

@@ -32,12 +32,12 @@ public class MainActivity extends Activity {
 	
 	public void startClick(View view){
 		Intent intent=new Intent(MainActivity.this,PlanksActivity.class);
-		//intent.putExtra("reset", true);
 		startActivity(intent);
 	}
 	
 	public void settingsClick(View view){
-		
+		Intent intent=new Intent(MainActivity.this,SettingsActivity.class);
+		startActivity(intent);
 	}
 
 }

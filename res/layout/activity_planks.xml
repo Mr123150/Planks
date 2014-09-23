@@ -59,6 +59,8 @@
         android:visibility="gone"
         android:alpha="0.85"
         android:textSize="200sp"
+        android:clickable="true"
+        android:onClick="breakClicked"
         android:text="@string/zero" />
     
 </RelativeLayout>
