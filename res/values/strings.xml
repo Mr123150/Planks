@@ -20,4 +20,11 @@
 	
 	<string name="settings_break">Break time</string>
 	
+	<string name="plank_0">Plank 0</string>
+	<string name="plank_1">Plank 1</string>
+	<string name="plank_2">Plank 2</string>
+	<string name="plank_3">Plank 3</string>
+	<string name="plank_4">Plank 4</string>
+	<string name="plank_5">Plank 5</string>
+	
 </resources>

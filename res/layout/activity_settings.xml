@@ -1,97 +1,114 @@
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingLeft="5dp"
-    tools:context=".SettingsActivity" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent" >
 
-    <TableRow
-        android:id="@+id/breakRow"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-        
-        <TextView 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|left"
-            android:text="@string/settings_break"/>
-        
-        <LinearLayout
-            android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:gravity="right"
+            android:gravity="right|center"
             android:orientation="horizontal" >
-            
-            <Button
-	            android:id="@+id/breakMinus"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:background="#0fff"
-	            android:text="@string/minus"
-	            android:textSize="30sp" />
-	        
-	        <EditText
-	            android:id="@+id/breakTime"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:inputType="numberDecimal"
-	            android:text="@string/zero" />
-	        
-	        <Button
-	            android:id="@+id/breakPlus"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:background="#0fff"
-	            android:text="@string/plus"
-	            android:textSize="30sp" />
-            
-        </LinearLayout>
 
-    </TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:text="@string/settings_break"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TableRow
-        android:id="@+id/beepRow"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-    </TableRow>
+            <LinearLayout
+                android:id="@+id/breakLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal" >
 
-    <TableRow
-        android:id="@+id/plankRow1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-    </TableRow>
+                <Button
+                    android:id="@+id/breakMinus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#0fff"
+                    android:text="@string/minus"
+                    android:textSize="30sp" />
 
-    <TableRow
-        android:id="@+id/plankRow2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-    </TableRow>
+                <EditText
+                    android:id="@+id/breakTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:selectAllOnFocus="true"
+                    android:text="@string/zero" />
 
-    <TableRow
-        android:id="@+id/plankRow3"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-    </TableRow>
+                <Button
+                    android:id="@+id/breakPlus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#0fff"
+                    android:text="@string/plus"
+                    android:textSize="30sp" />
+            </LinearLayout>
 
-    <TableRow
-        android:id="@+id/plankRow4"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-    </TableRow>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#b000"
+                android:layout_margin="10dp"
+                android:layout_below="@id/breakLayout" />
+        </RelativeLayout>
 
-    <TableRow
-        android:id="@+id/plankRow5"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right|center"
+            android:orientation="horizontal" >
 
-    </TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:text="@string/plank_0"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TableRow
-        android:id="@+id/plankRow6"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-    </TableRow>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal" >
 
-</TableLayout>
+                <Button
+                    android:id="@+id/plankMinus0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#0fff"
+                    android:text="@string/minus"
+                    android:textSize="30sp" />
+
+                <EditText
+                    android:id="@+id/plankTime0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:selectAllOnFocus="true"
+                    android:text="@string/zero" />
+
+                <Button
+                    android:id="@+id/plankPlus0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#0fff"
+                    android:text="@string/plus"
+                    android:textSize="30sp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

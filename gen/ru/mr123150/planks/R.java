@@ -26,23 +26,20 @@ public final class R {
         public static final int skip_disabled=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f080014;
-        public static final int action_skip=0x7f080015;
-        public static final int beepRow=0x7f08000d;
-        public static final int breakMinus=0x7f08000a;
-        public static final int breakPlus=0x7f08000c;
-        public static final int breakRow=0x7f080009;
-        public static final int breakTime=0x7f08000b;
+        public static final int action_settings=0x7f080011;
+        public static final int action_skip=0x7f080012;
+        public static final int breakLayout=0x7f08000a;
+        public static final int breakMinus=0x7f08000b;
+        public static final int breakPlus=0x7f08000d;
+        public static final int breakTime=0x7f08000c;
         public static final int breakTimer=0x7f080008;
         public static final int countCurrent=0x7f080005;
         public static final int countOf=0x7f080006;
         public static final int countTotal=0x7f080007;
-        public static final int plankRow1=0x7f08000e;
-        public static final int plankRow2=0x7f08000f;
-        public static final int plankRow3=0x7f080010;
-        public static final int plankRow4=0x7f080011;
-        public static final int plankRow5=0x7f080012;
-        public static final int plankRow6=0x7f080013;
+        public static final int plankMinus0=0x7f08000e;
+        public static final int plankPlus0=0x7f080010;
+        public static final int plankTime0=0x7f08000f;
+        public static final int scrollView1=0x7f080009;
         public static final int settingsButton=0x7f080002;
         public static final int startButton=0x7f080001;
         public static final int timerRevText=0x7f080004;
@@ -66,6 +63,12 @@ public final class R {
         public static final int app_name=0x7f050000;
         public static final int counter_of=0x7f05000a;
         public static final int minus=0x7f050002;
+        public static final int plank_0=0x7f05000c;
+        public static final int plank_1=0x7f05000d;
+        public static final int plank_2=0x7f05000e;
+        public static final int plank_3=0x7f05000f;
+        public static final int plank_4=0x7f050010;
+        public static final int plank_5=0x7f050011;
         public static final int plus=0x7f050003;
         public static final int settings_break=0x7f05000b;
         public static final int timer_default=0x7f050009;
