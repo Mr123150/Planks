@@ -35,12 +35,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#0fff"
+                    android:onClick="breakMinusClick"
                     android:text="@string/minus"
                     android:textSize="30sp" />
 
                 <EditText
                     android:id="@+id/breakTime"
-                    android:layout_width="wrap_content"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
                     android:selectAllOnFocus="true"
@@ -51,6 +52,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#0fff"
+                    android:onClick="breakPlusClick"
                     android:text="@string/plus"
                     android:textSize="30sp" />
             </LinearLayout>
@@ -58,9 +60,9 @@
             <View
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
-                android:background="#b000"
+                android:layout_below="@id/breakLayout"
                 android:layout_margin="10dp"
-                android:layout_below="@id/breakLayout" />
+                android:background="#b000" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -89,12 +91,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#0fff"
+                    android:onClick="plankMinusClick"
                     android:text="@string/minus"
                     android:textSize="30sp" />
 
                 <EditText
                     android:id="@+id/plankTime0"
-                    android:layout_width="wrap_content"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
                     android:selectAllOnFocus="true"
@@ -105,10 +108,263 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#0fff"
+            		android:onClick="plankPlusClick"
                     android:text="@string/plus"
                     android:textSize="30sp" />
             </LinearLayout>
         </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right|center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:text="@string/plank_1"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/plankMinus1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#0fff"
+                    android:onClick="plankMinusClick"
+                    android:text="@string/minus"
+                    android:textSize="30sp" />
+
+                <EditText
+                    android:id="@+id/plankTime1"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:selectAllOnFocus="true"
+                    android:text="@string/zero" />
+
+                <Button
+                    android:id="@+id/plankPlus1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#0fff"
+            		android:onClick="plankPlusClick"
+                    android:text="@string/plus"
+                    android:textSize="30sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right|center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:text="@string/plank_2"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/plankMinus2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#0fff"
+                    android:onClick="plankMinusClick"
+                    android:text="@string/minus"
+                    android:textSize="30sp" />
+
+                <EditText
+                    android:id="@+id/plankTime2"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:selectAllOnFocus="true"
+                    android:text="@string/zero" />
+
+                <Button
+                    android:id="@+id/plankPlus2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#0fff"
+            		android:onClick="plankPlusClick"
+                    android:text="@string/plus"
+                    android:textSize="30sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right|center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:text="@string/plank_3"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/plankMinus3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#0fff"
+                    android:onClick="plankMinusClick"
+                    android:text="@string/minus"
+                    android:textSize="30sp" />
+
+                <EditText
+                    android:id="@+id/plankTime3"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:selectAllOnFocus="true"
+                    android:text="@string/zero" />
+
+                <Button
+                    android:id="@+id/plankPlus3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#0fff"
+            		android:onClick="plankPlusClick"
+                    android:text="@string/plus"
+                    android:textSize="30sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right|center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:text="@string/plank_4"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/plankMinus4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#0fff"
+                    android:onClick="plankMinusClick"
+                    android:text="@string/minus"
+                    android:textSize="30sp" />
+
+                <EditText
+                    android:id="@+id/plankTime4"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:selectAllOnFocus="true"
+                    android:text="@string/zero" />
+
+                <Button
+                    android:id="@+id/plankPlus4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#0fff"
+            		android:onClick="plankPlusClick"
+                    android:text="@string/plus"
+                    android:textSize="30sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right|center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:text="@string/plank_5"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/plankMinus5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#0fff"
+                    android:onClick="plankMinusClick"
+                    android:text="@string/minus"
+                    android:textSize="30sp" />
+
+                <EditText
+                    android:id="@+id/plankTime5"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:selectAllOnFocus="true"
+                    android:text="@string/zero" />
+
+                <Button
+                    android:id="@+id/plankPlus5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#0fff"
+            		android:onClick="plankPlusClick"
+                    android:text="@string/plus"
+                    android:textSize="30sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <Button 
+            android:id="@+id/settingsReset"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="resetClick"
+            android:text="@string/settings_reset" />
     </LinearLayout>
 
 </ScrollView>

@@ -19,6 +19,7 @@
 	<string name="counter_of"> of </string>
 	
 	<string name="settings_break">Break time</string>
+	<string name="settings_reset">Reset</string>
 	
 	<string name="plank_0">Plank 0</string>
 	<string name="plank_1">Plank 1</string>
