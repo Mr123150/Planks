@@ -3,8 +3,10 @@ package ru.mr123150.planks;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -14,16 +16,13 @@ public class SettingsActivity extends Activity {
 	EditText breakTimeText;
 	EditText plankTimeText[] = new EditText[6];
 	
-	int breakTime;
-	int plankTime[] = new int[6];
-	
 	public static final String APP_PREFERENCES = "settings";
-	public static final String APP_PREFERENCES_TIMER_0 = "Timer";
-	public static final String APP_PREFERENCES_TIMER_1 = "Timer";
-	public static final String APP_PREFERENCES_TIMER_2 = "Timer";
-	public static final String APP_PREFERENCES_TIMER_3 = "Timer";
-	public static final String APP_PREFERENCES_TIMER_4 = "Timer";
-	public static final String APP_PREFERENCES_TIMER_5 = "Timer";
+	public static final String APP_PREFERENCES_TIMER_0 = "Timer0";
+	public static final String APP_PREFERENCES_TIMER_1 = "Timer1";
+	public static final String APP_PREFERENCES_TIMER_2 = "Timer2";
+	public static final String APP_PREFERENCES_TIMER_3 = "Timer3";
+	public static final String APP_PREFERENCES_TIMER_4 = "Timer4";
+	public static final String APP_PREFERENCES_TIMER_5 = "Timer5";
 	public static final String APP_PREFERENCES_TIMER_BREAK = "TimerBreak";
 	
 	SharedPreferences settings;
@@ -45,26 +44,33 @@ public class SettingsActivity extends Activity {
 		
 		settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 
-		plankTime[0]=settings.getInt(APP_PREFERENCES_TIMER_0, 30);
-		plankTime[1]=settings.getInt(APP_PREFERENCES_TIMER_1, 30);
-		plankTime[2]=settings.getInt(APP_PREFERENCES_TIMER_2, 30);
-		plankTime[3]=settings.getInt(APP_PREFERENCES_TIMER_3, 30);
-		plankTime[4]=settings.getInt(APP_PREFERENCES_TIMER_4, 30);
-		plankTime[5]=settings.getInt(APP_PREFERENCES_TIMER_5, 30);
-		breakTime=settings.getInt(APP_PREFERENCES_TIMER_BREAK, 5);
-		
-		breakTimeText.setText(Integer.toString(breakTime));
-		for(int i=0;i<6;++i){
-			plankTimeText[i].setText(Integer.toString(plankTime[i]));
-		}
+		plankTimeText[0].setText(settings.getString(APP_PREFERENCES_TIMER_0, "30"));
+		plankTimeText[1].setText(settings.getString(APP_PREFERENCES_TIMER_1, "30"));
+		plankTimeText[2].setText(settings.getString(APP_PREFERENCES_TIMER_2, "30"));
+		plankTimeText[3].setText(settings.getString(APP_PREFERENCES_TIMER_3, "30"));
+		plankTimeText[4].setText(settings.getString(APP_PREFERENCES_TIMER_4, "30"));
+		plankTimeText[5].setText(settings.getString(APP_PREFERENCES_TIMER_5, "30"));
+		breakTimeText.setText(settings.getString(APP_PREFERENCES_TIMER_BREAK, "5"));
 		
 	}
 	
-	public void resetClick(View v){
-		breakTimeText.setText("5");
-		for(int i=0;i<6;++i){
-			plankTimeText[i].setText("30");
-		}
+	@Override
+	protected void onStop(){
+		super.onStop();
+		
+		Editor editor = settings.edit();
+		editor.putString(APP_PREFERENCES_TIMER_0, plankTimeText[0].getText().toString());
+		editor.putString(APP_PREFERENCES_TIMER_1, plankTimeText[1].getText().toString());
+		editor.putString(APP_PREFERENCES_TIMER_2, plankTimeText[2].getText().toString());
+		editor.putString(APP_PREFERENCES_TIMER_3, plankTimeText[3].getText().toString());
+		editor.putString(APP_PREFERENCES_TIMER_4, plankTimeText[4].getText().toString());
+		editor.putString(APP_PREFERENCES_TIMER_5, plankTimeText[5].getText().toString());
+		editor.putString(APP_PREFERENCES_TIMER_BREAK, breakTimeText.getText().toString());
+		editor.apply();
+	}
+	
+	public void saveClick(View v){
+		NavUtils.navigateUpFromSameTask(this);
 	}
 	
 	public void breakMinusClick(View v){
@@ -81,22 +87,22 @@ public class SettingsActivity extends Activity {
 	public void plankMinusClick(View v){
 		int i=0;
 		switch(v.getId()){
-		case R.id.plankPlus0:
+		case R.id.plankMinus0:
 			i=0;
 			break;
-		case R.id.plankPlus1:
+		case R.id.plankMinus1:
 			i=1;
 			break;
-		case R.id.plankPlus2:
+		case R.id.plankMinus2:
 			i=2;
 			break;
-		case R.id.plankPlus3:
+		case R.id.plankMinus3:
 			i=3;
 			break;
-		case R.id.plankPlus4:
+		case R.id.plankMinus4:
 			i=4;
 			break;
-		case R.id.plankPlus5:
+		case R.id.plankMinus5:
 			i=5;
 			break;
 		}
@@ -140,12 +146,12 @@ public class SettingsActivity extends Activity {
 
 	}
 
-	/*@Override
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.settings, menu);
 		return true;
-	}*/
+	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -153,6 +159,11 @@ public class SettingsActivity extends Activity {
 		case android.R.id.home:
 			NavUtils.navigateUpFromSameTask(this);
 			return true;
+		case R.id.action_reset:
+			breakTimeText.setText("5");
+			for(int i=0;i<6;++i){
+				plankTimeText[i].setText("30");
+			}
 		}
 		return super.onOptionsItemSelected(item);
 	}

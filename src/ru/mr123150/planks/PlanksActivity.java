@@ -31,12 +31,12 @@ public class PlanksActivity extends Activity {
 	int timerTime[]=new int[6];
 	
 	public static final String APP_PREFERENCES = "settings";
-	public static final String APP_PREFERENCES_TIMER_0 = "Timer";
-	public static final String APP_PREFERENCES_TIMER_1 = "Timer";
-	public static final String APP_PREFERENCES_TIMER_2 = "Timer";
-	public static final String APP_PREFERENCES_TIMER_3 = "Timer";
-	public static final String APP_PREFERENCES_TIMER_4 = "Timer";
-	public static final String APP_PREFERENCES_TIMER_5 = "Timer";
+	public static final String APP_PREFERENCES_TIMER_0 = "Timer0";
+	public static final String APP_PREFERENCES_TIMER_1 = "Timer1";
+	public static final String APP_PREFERENCES_TIMER_2 = "Timer2";
+	public static final String APP_PREFERENCES_TIMER_3 = "Timer3";
+	public static final String APP_PREFERENCES_TIMER_4 = "Timer4";
+	public static final String APP_PREFERENCES_TIMER_5 = "Timer5";
 	public static final String APP_PREFERENCES_TIMER_BREAK = "TimerBreak";
 	
 	SharedPreferences settings;
@@ -52,13 +52,19 @@ public class PlanksActivity extends Activity {
 		
 		settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 
-		timerTime[0]=settings.getInt(APP_PREFERENCES_TIMER_0, 30);
-		timerTime[1]=settings.getInt(APP_PREFERENCES_TIMER_1, 30);
+		timerTime[0]=Integer.parseInt(settings.getString(APP_PREFERENCES_TIMER_0, "30"));
+		timerTime[1]=Integer.parseInt(settings.getString(APP_PREFERENCES_TIMER_1, "30"));
+		timerTime[2]=Integer.parseInt(settings.getString(APP_PREFERENCES_TIMER_2, "30"));
+		timerTime[3]=Integer.parseInt(settings.getString(APP_PREFERENCES_TIMER_3, "30"));
+		timerTime[4]=Integer.parseInt(settings.getString(APP_PREFERENCES_TIMER_4, "30"));
+		timerTime[5]=Integer.parseInt(settings.getString(APP_PREFERENCES_TIMER_5, "30"));
+		breakTime=Integer.parseInt(settings.getString(APP_PREFERENCES_TIMER_BREAK, "5"));
+		/*timerTime[1]=settings.getInt(APP_PREFERENCES_TIMER_1, 30);
 		timerTime[2]=settings.getInt(APP_PREFERENCES_TIMER_2, 30);
 		timerTime[3]=settings.getInt(APP_PREFERENCES_TIMER_3, 30);
 		timerTime[4]=settings.getInt(APP_PREFERENCES_TIMER_4, 30);
 		timerTime[5]=settings.getInt(APP_PREFERENCES_TIMER_5, 30);
-		breakTime=settings.getInt(APP_PREFERENCES_TIMER_BREAK, 5);
+		breakTime=settings.getInt(APP_PREFERENCES_TIMER_BREAK, 5);*/
 		
 		timerText=(TextView)findViewById(R.id.timerText);
 		timerRevText=(TextView)findViewById(R.id.timerRevText);

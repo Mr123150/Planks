@@ -360,11 +360,11 @@
         </RelativeLayout>
 
         <Button 
-            android:id="@+id/settingsReset"
+            android:id="@+id/settingsSave"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:onClick="resetClick"
-            android:text="@string/settings_reset" />
+            android:onClick="saveClick"
+            android:text="@string/settings_save" />
     </LinearLayout>
 
 </ScrollView>
